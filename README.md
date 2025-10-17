@@ -1,20 +1,20 @@
 # markdown-to-html
 
 ## Overview
-Publish a static page that converts input.md from attachments to HTML with marked, renders it inside #markdown-output, and loads highlight.js for code blocks.
+Add tabs #markdown-tabs that switch between rendered HTML in #markdown-output and the original Markdown in #markdown-source while keeping content in sync.
 
-**Round:** 1  
+**Round:** 2  
 **Status:** ✅ Successfully Generated
 
 ## Features
-- Initial implementation of markdown-to-html
-- Self-contained HTML file with inline CSS and JavaScript
-- No external dependencies
+- Enhanced version with updates from Round 2
+- Maintains backward compatibility with previous functionality
+- New features as per requirements: Add tabs #markdown-tabs that switch between rendered HTML in #markdown-output and the original Markd...
 
 ## Technical Details
 - **HTML5** with semantic markup
 - **Inline CSS** for styling (~200 lines estimated)
-- **Vanilla JavaScript** for functionality (~33 lines)
+- **Vanilla JavaScript** for functionality (~56 lines)
 - **No external dependencies** - runs completely offline
 
 ## Setup & Usage
@@ -46,6 +46,8 @@ The application uses vanilla JavaScript for all interactivity:
 
 **Key Functions:**
 - `markdownToHtml()`: Core functionality handler
+- `syncMarkdown()`: Core functionality handler
+- `showTab()`: Core functionality handler
 
 **Event Handling:**
 - Interactive elements with event listeners
@@ -58,8 +60,8 @@ The application uses vanilla JavaScript for all interactivity:
 
 ## Development Notes
 
-### Round 1 Changes
-Publish a static page that converts input.md from attachments to HTML with marked, renders it inside #markdown-output, and loads highlight.js for code blocks.
+### Round 2 Changes
+Add tabs #markdown-tabs that switch between rendered HTML in #markdown-output and the original Markdown in #markdown-source while keeping content in sync.
 
 ### Future Improvements
 - Further feature enhancements based on user feedback
@@ -70,6 +72,6 @@ Publish a static page that converts input.md from attachments to HTML with marke
 This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## Generated
-- **Round:** 1
+- **Round:** 2
 - **Generated:** Automatically via AI
-- **File Size:** 3023 bytes
+- **File Size:** 4897 bytes
