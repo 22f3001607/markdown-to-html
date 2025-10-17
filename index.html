@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Markdown to HTML Converter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        textarea {
+            width: 100%;
+            height: 200px;
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 14px;
+        }
+        #markdown-output {
+            background-color: #fff;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            overflow: auto;
+        }
+        pre {
+            background: #f0f0f0;
+            padding: 10px;
+            border-radius: 5px;
+            overflow: auto;
+        }
+        code {
+            font-family: monospace;
+            background: #eaeaea;
+            padding: 2px 4px;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Markdown to HTML Converter</h1>
+    <textarea id="markdown-input" placeholder="Enter Markdown here..."></textarea>
+    <button id="convert-button">Convert to HTML</button>
+    <h2>Output</h2>
+    <div id="markdown-output"></div>
+
+    <script>
+        function markdownToHtml(markdown) {
+            const marked = (function() {
+                // Simple Markdown to HTML conversion logic (limited)
+                return {
+                    parse: function(src) {
+                        return src
+                            .replace(/### (.*?)\n/g, '<h3>$1</h3>')
+                            .replace(/## (.*?)\n/g, '<h2>$1</h2>')
+                            .replace(/# (.*?)\n/g, '<h1>$1</h1>')
+                            .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+                            .replace(/\*(.*?)\*/g, '<em>$1</em>')
+                            .replace(/`(.*?)`/g, '<code>$1</code>')
+                            .replace(/\n/g, '<br/>')
+                            .replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+                    }
+                };
+            })();
+
+            return marked.parse(markdown);
+        }
+
+        document.getElementById('convert-button').addEventListener('click', function() {
+            const markdownInput = document.getElementById('markdown-input').value;
+            const htmlOutput = markdownToHtml(markdownInput);
+            document.getElementById('markdown-output').innerHTML = htmlOutput;
+            // Highlight.js simulation
+            const codeBlocks = document.querySelectorAll('#markdown-output pre code');
+            codeBlocks.forEach(block => {
+                block.style.backgroundColor = '#f0f0f0';
+                block.style.padding = '10px';
+            });
+        });
+    </script>
+</body>
+</html>
